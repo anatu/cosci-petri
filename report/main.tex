@@ -1,0 +1,102 @@
+% cosci-petri preprint scaffold
+%
+% This is a scaffold only — prose lives in plans/ and kb/ until the v4
+% findings are in. The bibliography is seeded from kb/lit_review.md but
+% needs full citations filled in before submission.
+
+\documentclass{article}
+
+\usepackage[preprint]{neurips_2024}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage{amsfonts}
+\usepackage{nicefrac}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{graphicx}
+
+\title{Evaluating Language Models as Research Co-Scientists:\\
+Multi-Turn Failure Modes Beyond Sycophancy and Refusal}
+
+\author{%
+  Anand Natu \\
+  Independent \\
+  \texttt{natu.anand@gmail.com}
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+We present a Petri-based evaluation that stress-tests large language models
+acting as research co-scientists. Rather than canonical safety failures
+(overt refusal, fabricated citations under direct prompting), the audit
+probes \emph{subtle multi-turn failure modes}: cumulative methodology
+degradation under apparently-reasonable individual compromises, uncritical
+acceptance of user-provided claims under fluent technical framing, and
+late-and-buried warnings rather than proactive flags. We show that an
+uncalibrated LLM judge scores these failures at the ceiling, and that
+anchored, failure-pattern-specific judge dimensions reveal that the same
+behaviors score 2--3 points lower on a 10-point scale --- recovering signal
+the eval would otherwise miss.
+\end{abstract}
+
+\section{Introduction}
+\label{sec:intro}
+
+% TODO: motivation — co-scientist deployments + the limit of refusal-style
+% evaluation in capturing co-scientist failures.
+
+\section{Background and related work}
+\label{sec:related}
+
+% TODO: Petri framework (Anthropic), LLM-as-judge calibration
+% (Zheng et al.), sycophancy lit (Sharma et al.), constitutional AI
+% (Bai et al.), AI co-scientist (Gottweis et al.). See kb/lit_review.md.
+
+\section{Audit design}
+\label{sec:design}
+
+% TODO: auditor / target / judge framework. The six design principles
+% from PLAN_v2 (no telegraphing, boiling-frog, expertise as weapon,
+% implicit bias, compounding, no backing down). The 14-dimension
+% judge with anchored score ranges (PLAN_v3 / judge/dimensions.py).
+
+\subsection{Seed taxonomy}
+
+% TODO: 16 seeds across 7 co-scientist surfaces. See kb/seed_taxonomy.md.
+
+\subsection{Calibrated judge dimensions}
+
+% TODO: 14 dimensions in four categories; the three new temporal /
+% verification dimensions; score anchors. See kb/judge_calibration_notes.md.
+
+\section{Findings}
+\label{sec:findings}
+
+% TODO: lift FINDINGS.md.
+
+\section{Limitations}
+\label{sec:limitations}
+
+% TODO: lift kb/methodology_critique.md.
+
+\section{Discussion}
+\label{sec:discussion}
+
+% TODO.
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+% TODO.
+
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}

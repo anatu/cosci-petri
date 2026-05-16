@@ -1,3 +1,16 @@
 .env
 logs/
 outputs/
+__pycache__/
+*.pyc
+.venv/
+.DS_Store
+report/main.aux
+report/main.log
+report/main.out
+report/main.pdf
+report/main.bbl
+report/main.blg
+report/main.fdb_latexmk
+report/main.fls
+report/main.synctex.gz

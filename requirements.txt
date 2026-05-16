@@ -1,0 +1,15 @@
+# Core eval framework
+inspect-ai==0.3.205
+petri @ git+https://github.com/safety-research/petri@main
+
+# API client
+anthropic==0.86.0
+
+# Config / env
+python-dotenv>=1.0.0
+
+# Analysis layer
+pandas>=2.0.0
+numpy>=1.26.0
+matplotlib>=3.8.0
+seaborn>=0.13.0
