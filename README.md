@@ -33,7 +33,8 @@ cosci-petri/
 │   ├── PLAN_v1.md           # baseline (canonical failure modes)
 │   ├── PLAN_v2.md           # adversarial seeds (six design principles)
 │   ├── PLAN_v3.md           # calibrated judge (anchors + 3 new dims)
-│   ├── PLAN_v4.md           # next — co-scientist surface expansion
+│   ├── PLAN_v4.md           # co-scientist surface expansion (executed)
+│   ├── PLAN_v5.md           # next — capability eval vs peer-review ground truth (parallel pipeline)
 │   └── REFACTOR.md          # project structuring decisions
 │
 ├── kb/                      # knowledge base — persistent research context
