@@ -59,7 +59,9 @@ cosci-petri/
 │   └── transcript_metrics.py
 │
 ├── analysis/
-│   └── analyze.py           # per-dim stats, heatmap, length histogram
+│   ├── analyze.py           # per-dim stats, heatmap, length histogram
+│   ├── rescore.py           # re-judge a saved .eval log via inspect_ai.score
+│   └── rejudge_transcript.py # re-judge a transcript JSON directly (bypass empty audit_store; supports scores-only + prefill for refusal recovery)
 │
 ├── outputs/                 # raw Petri transcripts (gitignored)
 ├── results/                 # aggregated scores, plots (tracked)
