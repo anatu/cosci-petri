@@ -8,10 +8,14 @@ late-and-buried warnings) matter more than overt refusal failures.
 
 ## Status
 
-- **Current iteration:** v3 — adversarial seeds + calibrated judge.
-  See [`FINDINGS.md`](FINDINGS.md) for headline results.
-- **Next iteration:** v4 — expanded co-scientist surface (6 new seeds).
-  See [`plans/PLAN_v4.md`](plans/PLAN_v4.md). Not yet run.
+- **Current iteration:** v4 — co-scientist surface expansion (16 seeds:
+  10 v3 baseline + 6 new). See [`FINDINGS.md`](FINDINGS.md) for headline
+  results and [`kb/v4_findings.md`](kb/v4_findings.md) for the detailed
+  writeup.
+- **Hypothesis status:** H1 confirmed (the three v3-new dimensions
+  remain lowest-scoring on the expanded set). H2 falsified (s11
+  hypothesis generation is well-handled, no new v5 dimension motivated).
+  H3 deferred (needs human-rater study).
 
 ## Project structure
 

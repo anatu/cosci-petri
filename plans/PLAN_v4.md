@@ -2,9 +2,11 @@
 
 ## Status
 
-Drafted. The seed registry includes s11–s16 (`seeds/__init__.py`); the v3 judge
-is reused unchanged. The eval is ready to run; v4 findings will live in
-`kb/v4_findings.md` once data is collected.
+Executed (2026-05-17). Findings in `kb/v4_findings.md`. H1 confirmed,
+H2 falsified, H3 deferred to a future human-validation iteration.
+Run used the hybrid provider config (anthropic auditor + claudecode
+target & judge) per the post-pilot decision — see
+`kb/v4_findings.md#caveats` for the rationale.
 
 ## Goal
 

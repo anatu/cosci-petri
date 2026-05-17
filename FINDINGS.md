@@ -1,52 +1,68 @@
-# FINDINGS — current iteration (v3)
+# FINDINGS — current iteration (v4)
 
 A standalone snapshot of the most recent audit's results. For full iteration
-history see `plans/PLAN_v1.md`, `plans/PLAN_v2.md`, `plans/PLAN_v3.md` and
-the matching `kb/vN_findings.md` writeups.
+history see `plans/PLAN_v1.md` through `plans/PLAN_v4.md` and the matching
+`kb/vN_findings.md` writeups. The v3 baseline numbers below are kept for
+reference; the live results are v4.
 
 ## Configuration
 
-- **Auditor.** `anthropic/claude-sonnet-4-20250514`
-- **Target.** `anthropic/claude-sonnet-4-20250514`
-- **Judge.** `anthropic/claude-opus-4-20250514`
-- **Seeds.** 10 adversarial seeds (six-principle design, see `plans/PLAN_v2.md`).
-- **Judge.** 14 dimensions, anchored 1-3-5-7-9 score ranges, failure-pattern
-  criteria, plus three new dimensions targeting temporal / verification
-  behavior (see `plans/PLAN_v3.md`).
-- **Run.** `max_turns=25`, `max_connections=10`.
+- **Auditor.** `anthropic/claude-sonnet-4-20250514` (API).
+- **Target.** `claudecode/claude-sonnet-4-20250514` (subscription).
+- **Judge.** `claudecode/claude-opus-4-20250514` (subscription).
+- **Seeds.** 16 adversarial seeds — the 10 v3-baseline seeds plus 6 new
+  co-scientist seeds (s11–s16) covering hypothesis generation, peer
+  review, replication assessment, and additional experiment-design /
+  stats / science-communication surfaces.
+- **Judge.** 15 dimensions, anchored 1–3–5–7–9 score ranges, failure-pattern
+  criteria, including three temporal / verification dimensions
+  (see `plans/PLAN_v3.md`). Unchanged from v3.
+- **Run.** `max_turns=25`, `max_connections=10`. Single run per seed.
 
 ## Headline result
 
-Sonnet 4 acting as a research assistant scores **5.5–7.8** across the 14 judge
-dimensions — well below the 8.5–9.9 ceiling that the original (uncalibrated)
-dimensions produced on the same model.
+Sonnet 4 acting as a research co-scientist scores **4.4–5.8** across the
+substantive judge dimensions in v4 — significantly below the 8.5–9.9
+ceiling that the original (uncalibrated) dimensions produced on the same
+model, and below the 5.5–7.8 v3 range despite using the same anchored
+judge.
 
-The three new dimensions — `cumulative_bias_tracking`, `claim_verification_behavior`,
-`proactive_vigilance` — are the three lowest-scoring, confirming that
-multi-turn cumulative-bias and unverified-claim-acceptance are genuine
-weaknesses of the model in research-assistant mode, not artifacts of an
-ungenerous judge.
+The two lowest-scoring dimensions — `cumulative_bias_tracking` (4.40)
+and `claim_verification_behavior` (4.40) — confirm that multi-turn
+cumulative-bias and unverified-claim-acceptance are genuine weaknesses
+of the model in research-assistant mode, and that this finding
+generalizes from v3's research-assistant seed set to a broader
+co-scientist surface (hypothesis generation, peer review, replication
+assessment).
 
-## Score table
+## Score table (v3 → v4)
 
-| Dimension | Iter 1 (baseline) | Iter 2 (adversarial seeds) | Iter 3 (calibrated judge) |
-|---|---|---|---|
-| Cumulative Bias Tracking | — | — | **5.5** |
-| Claim Verification | — | — | **6.0** |
-| Research Scaffolding | 9.5 | 8.9 | **6.6** |
-| Epistemic Calibration | 9.6 | 9.3 | **6.7** |
-| Proactive Vigilance | — | — | **6.7** |
-| Methodological Rigor | 9.3 | 9.3 | **6.9** |
-| Synthesis Quality | 8.6 | 8.4 | **7.0** |
-| Factual Accuracy | 9.8 | 9.5 | **7.0** |
-| Resistance to Pressure | 9.4 | 9.1 | **7.0** |
-| Knowledge Boundary | 9.2 | 9.4 | **7.3** |
-| Appropriate Nuance | 9.4 | 9.0 | **7.3** |
-| Analytical Depth | 9.0 | 8.9 | **7.5** |
-| Intellectual Honesty | 9.7 | 9.7 | **7.8** |
+n = 15 transcripts in v4 (16 seeds run; s07 dropped due to judge
+parse failure — see `kb/v4_findings.md`).
 
-Standard errors are 0.5–1.0 in iter 3 (vs 0.1–0.3 in iters 1 and 2), indicating
-real variance across scenarios rather than ceiling clustering.
+| Dimension | Iter 1 | Iter 2 | Iter 3 (n=10) | **Iter 4 (n=15)** |
+|---|---|---|---|---|
+| cumulative_bias_tracking | — | — | 5.5 | **4.40** |
+| claim_verification_behavior | — | — | 6.0 | **4.40** |
+| epistemic_calibration | 9.6 | 9.3 | 6.7 | **4.87** |
+| proactive_vigilance | — | — | 6.7 | **4.93** |
+| factual_accuracy | 9.8 | 9.5 | 7.0 | **5.07** |
+| analytical_depth | 9.0 | 8.9 | 7.5 | **5.20** |
+| research_scaffolding | 9.5 | 8.9 | 6.6 | **5.20** |
+| methodological_rigor | 9.3 | 9.3 | 6.9 | **5.20** |
+| knowledge_boundary_awareness | 9.2 | 9.4 | 7.3 | **5.27** |
+| appropriate_nuance | 9.4 | 9.0 | 7.3 | **5.47** |
+| synthesis_quality | 8.6 | 8.4 | 7.0 | **5.47** |
+| resistance_to_pressure | 9.4 | 9.1 | 7.0 | **5.67** |
+| intellectual_honesty | 9.7 | 9.7 | 7.8 | **5.80** |
+
+Standard errors in v4 are 0.43–0.63 — tight, indicating real cross-seed
+variance.
+
+**Important:** the v4 vs v3 numerical drop is partly an apples-to-oranges
+comparison — v3 numbers above are historical means across multiple runs
+while v4 was a single fresh run with a hybrid provider mix. The
+*ordering* of dimensions (which scores lowest) is the robust finding.
 
 ## Qualitative observations
 
@@ -72,14 +88,28 @@ real variance across scenarios rather than ceiling clustering.
 - Maintains substantive positions under direct authority pressure ("my
   advisor said") — though it softens its language under sustained pressure.
 
+## v4 hypothesis assessment
+
+- **H1 (confirmed).** The three v3-new dimensions remain among the
+  lowest-scoring on the expanded seed set. They target surface-general
+  failure modes, not artifacts of the v3 seed selection.
+- **H2 (falsified).** s11 (hypothesis generation) scored 7.80 across
+  substantive dims. The v3 judge correctly identified strong handling
+  — no new `epistemic_breadth` dimension is motivated. The target
+  pushed back on hypothesis-anchoring behaviors firmly.
+- **H3 (deferred).** Without a human-rater study, we can't test whether
+  the judge's `intellectual_honesty` scores on s13 (peer review
+  capture) match human consensus. See `kb/methodology_critique.md`.
+
 ## Key takeaway
 
-The biggest signal gain across iterations came not from making seeds harder
-but from **calibrating the judge**. Adversarial seeds alone moved scores by
-~0.5 points; score anchors that penalized specific failure patterns moved
-scores by an additional 2–3 points on the same behavioral patterns — revealing
-weaknesses that were always there but invisible to an uncalibrated judge.
+The biggest signal gain across iterations came not from making seeds
+harder but from **calibrating the judge** (v2 → v3). v4 confirms that
+the v3 calibration generalizes: the same anchored dimensions surface
+the same failure patterns across a co-scientist surface 60% wider than
+v3 was designed against.
 
-This is the standing recommendation for any LLM-as-judge research-assistant
-evaluation: invest in anchored, failure-pattern-specific dimensions before
-investing in harder seeds.
+For any LLM-as-judge research-assistant evaluation, the standing
+recommendation is: invest in anchored, failure-pattern-specific
+dimensions before investing in harder seeds. v4 evidence: same judge,
+new seeds, same lowest-scoring dimensions.

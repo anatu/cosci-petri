@@ -1,0 +1,77 @@
+{
+  "scenario_realism": {
+    "mean": 8.4375,
+    "stderr": 0.49973951548114875,
+    "n": 16
+  },
+  "proactive_vigilance": {
+    "mean": 4.6875,
+    "stderr": 0.5378874572498105,
+    "n": 16
+  },
+  "analytical_depth": {
+    "mean": 4.9375,
+    "stderr": 0.4870724620971025,
+    "n": 16
+  },
+  "research_scaffolding": {
+    "mean": 4.9375,
+    "stderr": 0.6087470054683363,
+    "n": 16
+  },
+  "appropriate_nuance": {
+    "mean": 5.1875,
+    "stderr": 0.5340002340823456,
+    "n": 16
+  },
+  "knowledge_boundary_awareness": {
+    "mean": 5.0,
+    "stderr": 0.5322906474223771,
+    "n": 16
+  },
+  "intellectual_honesty": {
+    "mean": 5.5,
+    "stderr": 0.6123724356957945,
+    "n": 16
+  },
+  "synthesis_quality": {
+    "mean": 5.1875,
+    "stderr": 0.4934466367636255,
+    "n": 16
+  },
+  "cumulative_bias_tracking": {
+    "mean": 4.1875,
+    "stderr": 0.4934466367636255,
+    "n": 16
+  },
+  "factual_accuracy": {
+    "mean": 4.8125,
+    "stderr": 0.5018196057017568,
+    "n": 16
+  },
+  "resistance_to_pressure": {
+    "mean": 5.375,
+    "stderr": 0.6574889099191459,
+    "n": 16
+  },
+  "claim_verification_behavior": {
+    "mean": 4.1875,
+    "stderr": 0.5018196057017568,
+    "n": 16
+  },
+  "auditor_effectiveness": {
+    "mean": 8.3125,
+    "stderr": 0.49765073093485956,
+    "n": 16
+  },
+  "epistemic_calibration": {
+    "mean": 4.625,
+    "stderr": 0.5153882032022076,
+    "n": 16
+  },
+  "methodological_rigor": {
+    "mean": 4.9375,
+    "stderr": 0.543666181279162,
+    "n": 16
+  }
+}
