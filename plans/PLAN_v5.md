@@ -74,10 +74,26 @@ reviewer novelty/contribution scores as a finer-grained signal.
 
 - **Project structure conventions.** plans/ → kb/ → results/iter5/
   pattern carries over.
-- **Target model.** Sonnet 4 (`claude-sonnet-4-20250514`) — v4-consistent.
-  Its training cutoff (≈ early 2025) reliably predates ICLR 2026
-  submission window (Sept 2025). Verify and document the cutoff date
-  in `kb/v5_setup_notes.md` before running.
+- **Target model.** Opus 4.5 (`claude-opus-4-5-20251101`) — the
+  strongest frontier model whose training cutoff plausibly predates
+  the ICLR 2026 submission window (Sept–Oct 2025). Selection
+  rationale, since this is the obvious-critique surface:
+
+  | Candidate | Cutoff | ICLR 2026 status |
+  |---|---|---|
+  | `claude-opus-4-7` | Jan 2026 | Submissions and most reviews predate cutoff — corpus likely contaminated |
+  | `claude-opus-4-5-20251101` | ≈ Aug 2025 (released Nov 2025) | Sept–Oct 2025 submissions postdate cutoff — clean |
+  | `claude-opus-4-1-20250805` | ≈ early 2025 | Cleanly post-cutoff but weaker capability |
+  | `claude-sonnet-4-20250514` | ≈ early 2025 | Cleanly post-cutoff, but Sonnet-tier invites "why not Opus" |
+
+  Picking the strongest model (opus-4-7) re-introduces the exact
+  contamination problem v5 was designed to control for. Picking a
+  cleaner-cutoff but weaker model invites a capability-ceiling
+  critique. opus-4-5 is the best resolution of that tradeoff for the
+  ICLR 2026 corpus. Verify the exact cutoff date with Anthropic's
+  documentation and the contamination probe filter rate in
+  `kb/v5_setup_notes.md` before scaling; if filter rate is anomalously
+  high (>50%), fall back to opus-4-1.
 - **No Petri.** Petri-based v1–v4 stays as-is. v5 is parallel, not a
   successor.
 
@@ -264,3 +280,7 @@ to be a bad proxy.
 - **Cost.** ~50 papers × probe + prediction calls × embeddings ≈
   cheap on Anthropic API; OpenReview API has rate limits. Should not
   exceed a few hours of wall time.
+- **Opus 4.5 cutoff verification.** Anthropic's documented cutoff for
+  opus-4-5-20251101 should be confirmed before running. If it turns
+  out to extend past Sept 2025 (and we discover this via
+  high probe filter rate), the fallback is opus-4-1-20250805.
